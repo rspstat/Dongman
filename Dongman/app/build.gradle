@@ -1,0 +1,79 @@
+plugins {
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.google.gms.google.services)
+}
+
+android {
+    namespace 'com.example.dongman'
+    compileSdk 35 // Android 14 (API 34) 이상 요구사항에 맞춰 35로 통일
+
+    defaultConfig {
+        applicationId "com.example.dongman"
+        minSdk 24
+        targetSdk 35 // compileSdk와 동일하게
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17 // Java 17
+        targetCompatibility JavaVersion.VERSION_17 // Java 17
+    }
+    buildFeatures {
+        viewBinding true // View Binding을 사용하면 UI 요소 접근이 편리합니다.
+    }
+    aaptOptions {
+        noCompress 'tflite' // ML Kit 모델이 .tflite 파일을 사용하므로 압축하지 않도록 설정
+    }
+}
+
+dependencies {
+    // Firebase BOM을 사용하여 Firebase 라이브러리 버전 관리 (매우 권장)
+    implementation(platform("com.google.firebase:firebase-bom:33.1.1")) // 2025년 6월 현재 최신 안정 버전
+
+    // Firebase Core (BOM 사용 시 명시적 버전 필요 없음)
+    implementation("com.google.firebase:firebase-analytics") // 필요시 추가
+
+    implementation libs.appcompat
+    implementation libs.material
+    implementation libs.activity
+    implementation libs.constraintlayout
+    implementation libs.gridlayout
+
+    // Firebase 서비스 (BOM 사용 시 버전 명시 없음)
+    implementation("com.google.firebase:firebase-firestore")
+    implementation("com.google.firebase:firebase-storage")
+    implementation("com.google.firebase:firebase-auth")
+
+    testImplementation libs.junit
+    androidTestImplementation libs.ext.junit
+    androidTestImplementation libs.espresso.core
+
+    // Google Maps SDK
+    implementation "com.google.android.gms:play-services-maps:18.2.0" // 최신 안정 버전 확인 후 업데이트 가능
+
+    // 이미지 로딩 라이브러리: Glide
+    implementation 'com.github.bumptech.glide:glide:4.16.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.16.0'
+
+
+    // Room Persistence Library 의존성은 제거됨 (확인용 주석)
+    // implementation "androidx.room:room-runtime:2.6.1"
+    // annotationProcessor "androidx.room:room-compiler:2.6.1"
+
+    implementation 'com.google.code.gson:gson:2.10.1' // 또는 최신 버전
+
+    implementation 'com.google.mlkit:object-detection:17.0.1'
+
+    //implementation 'com.google.mlkit:face-detection:17.0.1'
+
+    implementation 'androidx.annotation:annotation:1.6.0'
+}

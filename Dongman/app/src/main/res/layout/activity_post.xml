@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingStart="24dp"
+    android:paddingEnd="24dp"
+    android:paddingTop="50dp"
+    android:background="#ffffff">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="24dp"
+        android:paddingStart="-16dp"
+        app:navigationIcon="@drawable/arrow_back"
+        android:background="@android:color/transparent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/layout_photo_upload"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        android:layout_marginTop="20dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/box_add_photo"
+            android:layout_width="72dp"
+            android:layout_height="88dp"
+            android:background="@drawable/shape_stroke_round"
+            android:layout_marginEnd="8dp">
+
+            <ImageButton
+                android:id="@+id/btn_add_photo"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="4dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="사진 추가"
+                android:src="@drawable/camera_logo"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_photo_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0/5"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btn_add_photo" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <HorizontalScrollView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:id="@+id/layout_image_previews"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+            </LinearLayout>
+        </HorizontalScrollView>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_title_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="제목"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/layout_photo_upload"
+        android:layout_marginTop="16dp"/>
+
+    <EditText
+        android:id="@+id/et_title"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:hint="글 제목"
+        android:background="@drawable/shape_stroke_round"
+        android:paddingStart="12dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_title_label"
+        android:layout_marginTop="6dp"/>
+
+    <TextView
+        android:id="@+id/tv_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="시간"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/et_title"
+        android:layout_marginTop="16dp"/>
+
+    <TextView
+        android:id="@+id/tv_people"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="모집 인원"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBaseline_toBaselineOf="@id/tv_time"/>
+
+    <Spinner
+        android:id="@+id/spinner_time"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:background="@drawable/shape_stroke_round"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/et_count"
+        app:layout_constraintTop_toBottomOf="@id/tv_time"
+        app:layout_constraintHorizontal_weight="1"
+        android:paddingStart="12dp"
+        android:layout_marginTop="6dp" />
+
+    <EditText
+        android:id="@+id/et_count"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="0dp"
+        android:background="@drawable/shape_stroke_round"
+        android:hint="0"
+        android:importantForAutofill="yes"
+        android:inputType="number"
+        android:paddingStart="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toEndOf="@id/spinner_time"
+        app:layout_constraintTop_toTopOf="@id/spinner_time" />
+
+    <TextView
+        android:id="@+id/tv_location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="장소"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/spinner_time"
+        android:layout_marginTop="16dp"/>
+
+    <EditText
+        android:id="@+id/et_location"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:hint="장소 입력"
+        android:background="@drawable/shape_stroke_round"
+        android:paddingStart="12dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_location"
+        android:layout_marginTop="6dp"/>
+
+    <TextView
+        android:id="@+id/tv_intro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="모임 소개"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/et_location"
+        android:layout_marginTop="16dp"/>
+
+    <EditText
+        android:id="@+id/et_intro"
+        android:layout_width="0dp"
+        android:layout_height="200dp"
+        android:hint="소개할 모임에 대해 설명해주세요.\n(부적절한 단어가 포함될 경우 게시가 제한될 수 있습니다.)"
+        android:background="@drawable/shape_stroke_round"
+        android:padding="12dp"
+        android:gravity="top|start"
+        android:inputType="textMultiLine"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_intro"
+        android:layout_marginTop="4dp"/>
+
+    <Button
+        android:id="@+id/btn_submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-17dp"
+        android:layout_marginRight="-17dp"
+        android:background="@android:color/transparent"
+        android:backgroundTint="@null"
+        android:insetLeft="0dp"
+        android:insetRight="0dp"
+        android:text="✏️ 등록"
+        android:textColor="#000000"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="110dp"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

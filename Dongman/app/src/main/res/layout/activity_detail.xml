@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:paddingTop="70dp">
+
+    <!-- ── 뒤로가기 화살표 툴바 ── -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="86dp"
+        android:layout_height="98dp"
+        android:background="@android:color/transparent"
+        app:navigationIcon="@drawable/arrow_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- 제목 -->
+    <TextView
+        android:id="@+id/tv_board_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="글 내용"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/toolbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.308"
+        app:layout_constraintStart_toEndOf="@id/toolbar"
+        app:layout_constraintTop_toTopOf="@id/toolbar"
+        app:layout_constraintVertical_bias="0.264" />
+
+    <!-- 대표 이미지 -->
+    <ImageView
+        android:id="@+id/img_cover"
+        android:layout_width="0dp"
+        android:layout_height="240dp"
+        android:scaleType="centerCrop"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/placeholder_thumbnail"
+        android:contentDescription="모임 대표 이미지"
+        app:layout_constraintTop_toBottomOf="@id/tv_board_title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- 스크롤 영역 -->
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintTop_toBottomOf="@id/img_cover"
+        app:layout_constraintBottom_toTopOf="@id/divider_line"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- 제목 -->
+            <TextView
+                android:id="@+id/tv_detail_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="배드민턴 모임"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:textColor="#000000"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="8dp" />
+
+            <!-- 메타 정보 (시간, 멤버) -->
+            <TextView
+                android:id="@+id/tv_detail_meta"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="매주 토요일 20시 | 멤버 6명"
+                android:textSize="14sp"
+                android:textColor="#666666"
+                android:layout_marginBottom="4dp" />
+
+            <!-- 장소 정보 -->
+            <TextView
+                android:id="@+id/tv_detail_location"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:layout_marginBottom="16dp"
+                android:gravity="center_vertical"
+                android:text="📍 충청북도 오창호수공원"
+                android:textColor="#007AFF" />
+
+            <!-- 모집 정보 섹션 -->
+            <TextView
+                android:id="@+id/label_recruit_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="내용"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:textColor="#000000"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp" />
+
+            <!-- 본문 내용 -->
+            <TextView
+                android:id="@+id/tv_detail_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:lineSpacingExtra="4dp"
+                android:textColor="#333333"
+                android:layout_marginBottom="24dp"
+                android:text="안녕하세요!\n오창호수공원에서 같이 밤에 달리실 분 구해요.\n저녁 드시고 천천히 나오시면 될 것 같아요.\n2명만 더 구하고 모집 종료하겠습니다!\n편하게 채팅 주세요" />
+
+
+<!--            &lt;!&ndash; 모집 정보 박스 &ndash;&gt;-->
+<!--            <LinearLayout-->
+<!--                android:id="@+id/box_recruit_info"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:orientation="vertical"-->
+<!--                android:background="#FFF9F5E6"-->
+<!--                android:padding="16dp"-->
+<!--                android:layout_marginBottom="20dp">-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/tv_recruit_count"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="모집 인원 : 6명"-->
+<!--                    android:textSize="14sp"-->
+<!--                    android:textColor="#333333" />-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/tv_recruit_time"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="시간 : 매주 토요일 20시"-->
+<!--                    android:textSize="14sp"-->
+<!--                    android:textColor="#333333"-->
+<!--                    android:layout_marginTop="6dp" />-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/tv_recruit_location"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="장소 : 충청북도 오창호수공원"-->
+<!--                    android:textSize="14sp"-->
+<!--                    android:textColor="#333333"-->
+<!--                    android:layout_marginTop="6dp" />-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/tv_recruit_condition"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="가입 조건 : 없음"-->
+<!--                    android:textSize="14sp"-->
+<!--                    android:textColor="#333333"-->
+<!--                    android:layout_marginTop="6dp" />-->
+<!--            </LinearLayout>-->
+
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- 하단 구분선 -->
+    <View
+        android:id="@+id/divider_line"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="#E0E0E0"
+        android:layout_marginBottom="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/bottom_buttons" />
+
+    <!-- 하단 버튼 영역 -->
+    <LinearLayout
+        android:id="@+id/bottom_buttons"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+<!--        &lt;!&ndash; 즐겨찾기 버튼 &ndash;&gt;-->
+<!--        <ImageButton-->
+<!--            android:id="@+id/btn_favorite"-->
+<!--            android:layout_width="56dp"-->
+<!--            android:layout_height="56dp"-->
+<!--            android:background="?attr/selectableItemBackgroundBorderless"-->
+<!--            android:contentDescription="즐겨찾기"-->
+<!--            android:src="@drawable/ic_heart"-->
+<!--            app:tint="@color/black" />-->
+
+        <!-- 지도 버튼 -->
+        <ImageButton
+            android:id="@+id/btn_map"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="8dp"
+            android:src="@drawable/googlemap"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="지도 보기"
+            android:padding="4dp" />
+
+        <!-- 참가 버튼 -->
+        <Button
+            android:id="@+id/btn_join"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="12dp"
+            android:layout_weight="1"
+            android:text="참여하기"
+            android:textColor="@android:color/white"
+            android:backgroundTint="#007AFF"
+            app:cornerRadius="24dp" />
+
+        <!-- 채팅 버튼 -->
+        <Button
+            android:id="@+id/chatWithHostButton"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:layout_marginStart="8dp"
+            android:text="채팅하기"
+            android:backgroundTint="#34C759"
+            android:textColor="@android:color/white"
+            app:cornerRadius="24dp"
+            android:padding="12dp" />
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
