@@ -16,9 +16,9 @@
 |-------------|-------------|----------------|------------|
 | ![intro](images/intro.png) | ![login](images/login.png) | ![register](images/register.png) | ![main](images/main.png) |
 
-| 글 세부 화면 | 채팅 화면 |
+<!-- | 글 세부 화면 | 채팅 화면 |
 |---------------|-------------|
-| ![detail](images/detail.png) | ![chat](images/chat.png) |
+| ![detail](images/detail.png) | ![chat](images/chat.png) | -->
 
 ---
 
